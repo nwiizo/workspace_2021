@@ -1,0 +1,5 @@
+domain: tutorial.kubebuilder.io
+layout: go.kubebuilder.io/v2
+projectName: v3kubebuilder
+repo: v3kubebuilder
+version: 3-alpha
