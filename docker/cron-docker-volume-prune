@@ -1,0 +1,1 @@
+30 5 15 * * /usr/bin/docker volume prune -f >> /var/log/docker-volume-prune
