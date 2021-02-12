@@ -6,5 +6,5 @@ Last year, goals weren't tied to concrete habits. Be conscious of getting into t
 - [ ] Reduce weight to 79㎏ & I don't get E at my health check 
 - [ ] Write code every day 
 - [ ] Write a book review you read every month
-- [ ] No drinking in February 2021
+- [ ] ~~No drinking in February 2021~~
 - [ ] Grow culture in-house by holding study sessions every month
