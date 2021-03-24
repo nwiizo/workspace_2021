@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/imdario/mergo v0.3.11 // indirect
+	github.com/markbates/pkger v0.17.1 // indirect
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324 // indirect
 	k8s.io/api v0.20.2 // indirect
 	k8s.io/apimachinery v0.20.2

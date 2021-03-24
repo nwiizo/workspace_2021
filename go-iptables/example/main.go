@@ -18,6 +18,9 @@ func contains(list []string, value string) bool {
 
 func main() {
 	ipt, err := iptables.New()
+	if err != nil {
+		fmt.Printf("New iptables failed: %v", err)
+	}
 	chain := "sample1"
 	// Saving the list of chains before executing tests
 	originaListChain, err := ipt.ListChains("filter")

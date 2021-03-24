@@ -1,0 +1,5 @@
+domain: example.com
+layout: go.kubebuilder.io/v3
+projectName: v3kubebuilder
+repo: github.com/nwiizo/workspace_2021/v3kubebuilder
+version: "3"
