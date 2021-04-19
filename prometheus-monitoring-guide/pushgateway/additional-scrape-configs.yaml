@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  additional.yaml: LSBqb2JfbmFtZTogcHVzaGdhdGV3YXkKICBob25vcl9sYWJlbHM6IGZhbHNlCiAgc3RhdGljX2NvbmZpZ3M6CiAgLSB0YXJnZXRzOiBbJ3B1c2hnYXRld2F5LXNlcnZpY2U6OTA5MSddCiAgICBsYWJlbHM6CiAgICAgIHB1c2hnYXRld2F5X2luc3RhbmNlOiBtZXRyaWNmaXJlCg==
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: additional-scrape-configs
