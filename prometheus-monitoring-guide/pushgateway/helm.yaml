@@ -1,3 +1,6 @@
+#  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+#  helm repo update
+#  helm install pushgateway prometheus-community/prometheus-pushgateway --set "serviceMonitor.enabled=true,serviceMonitor.namespace=cattle-prometheus"
 ---
 # Source: prometheus-pushgateway/templates/serviceaccount.yaml
 apiVersion: v1
