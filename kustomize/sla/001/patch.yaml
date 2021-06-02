@@ -1,0 +1,3 @@
+- op: replace
+  path: /metadata/labels/version
+  value: v1.0.1
