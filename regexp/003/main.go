@@ -9,7 +9,7 @@ import (
 
 func main() {
 	url := "https://3-shake.com/"
-	re, err := regexp.Compile("http(.*):(.*)")
+	re, err := regexp.Compile("http(.*)://(.*)")
 	if err != nil {
 		return
 	}
@@ -19,7 +19,7 @@ func main() {
 	byteArray, _ := ioutil.ReadAll(resp.Body)
 
 	//fmt.Println(string(byteArray)) // htmlをstringで取得
-	fmt.Println(re.FindAllString(string(byteArray), -1))
+	//fmt.Println(re.FindAllString(string(byteArray), -1))
 	words := re.FindAllString(string(byteArray), -1)
 	for i := 0; i < len(words); i++ {
 		fmt.Println(words[i])
