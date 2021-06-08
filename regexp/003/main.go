@@ -20,4 +20,8 @@ func main() {
 
 	//fmt.Println(string(byteArray)) // htmlをstringで取得
 	fmt.Println(re.FindAllString(string(byteArray), -1))
+	words := re.FindAllString(string(byteArray), -1)
+	for i := 0; i < len(words); i++ {
+		fmt.Println(words[i])
+	}
 }
