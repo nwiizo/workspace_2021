@@ -9,7 +9,7 @@ import (
 	"regexp"
 )
 
-func privateIP(ip string) (bool, error) {
+func PrivateIP(ip string) (bool, error) {
 	var err error
 	private := false
 	IP := net.ParseIP(ip)
@@ -41,6 +41,6 @@ func main() {
 	fmt.Println(links)
 	for i := 0; i < len(links); i++ {
 		fmt.Println(links[i])
-		fmt.Println(privateIP(links[i]))
+		fmt.Println(PrivateIP(links[i]))
 	}
 }
