@@ -17,22 +17,40 @@ package cmd
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
 
+func fizzbuzz(max int) {
+	for i := 0; i <= max; i++ {
+		fizz := i%3 == 0
+		buzz := i%5 == 0
+		switch {
+		case fizz && buzz:
+			fmt.Println("fizzbuzz")
+		case fizz && !buzz:
+			fmt.Println("fizz")
+		case !fizz && buzz:
+			fmt.Println("buzz")
+		default:
+			fmt.Println(i)
+		}
+	}
+}
+
 // fizzbuzzCmd represents the fizzbuzz command
 var fizzbuzzCmd = &cobra.Command{
-	Use:   "fizzbuzz",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Use:   "fizzbuzz [int]",
+	Short: "return Fizzbuzz",
+	Long: `return Fizzbuzz
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+return Fizzbuzz There is no particular reason because it is a suitable sample`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("fizzbuzz called")
+		var m int
+		m, _ = strconv.Atoi(args[0])
+		fizzbuzz(m)
 	},
 }
 
