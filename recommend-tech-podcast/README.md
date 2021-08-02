@@ -4,6 +4,7 @@
 - https://ajito.fm/
 - https://1pk.jp/opodcast/
 - https://fukabori.fm/
+- https://anchor.fm/pod-de-engineer
 - https://shiganai.org/
 - https://anchor.fm/em-fm
 - https://rebuild.fm/
