@@ -1,0 +1,6 @@
+domain: my.domain
+layout:
+- go.kubebuilder.io/v3
+projectName: kubeb
+repo: my.domain/makefilesample
+version: "3"

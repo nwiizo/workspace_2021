@@ -18,7 +18,7 @@ func main() {
 	if err := yaml.Unmarshal([]byte(yml), &v); err != nil {
 		panic(err)
 	}
-	if v.A != 2 {
+	if v.A != 1 {
 		// output error with YAML source
 		path, err := yaml.PathString("$.a")
 		if err != nil {
