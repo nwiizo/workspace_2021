@@ -7,3 +7,7 @@
 - https://shiganai.org/
 - https://anchor.fm/em-fm
 - https://rebuild.fm/
+
+# youtube
+- 先週のKubernetes　https://www.youtube.com/channel/UCTG9cMe2XKep8Fj1ujt5lCw
+- Kubernetes Internal　https://www.youtube.com/channel/UCpkd51NdxThtTSR3L6T83fw
