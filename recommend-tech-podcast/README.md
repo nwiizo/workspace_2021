@@ -1,5 +1,7 @@
 # recommend tech podcast
 - https://anchor.fm/textafm
+- https://anchor.fm/topotal/episodes/SRE-1-e13mmv4
+- https://anchor.fm/futuretechcast
 - https://e34.fm/
 - https://ajito.fm/
 - https://1pk.jp/opodcast/
