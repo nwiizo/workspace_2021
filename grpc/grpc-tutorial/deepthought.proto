@@ -1,0 +1,56 @@
+// Protocol Buffers のバージョン。2 と 3 があるが、今からやるなら `proto3` 一択
+syntax = "proto3";
+
+// package 指定は必須。HTTP/2 の :path 疑似ヘッダの一部として使われる。
+package deepthought;
+
+// option 指定は文字通りオプションで無くても構いません。
+// 以下の例は Go のコードを生成する際のパッケージ名を指定しています。
+option go_package = "github.com/ymmt2005/grpc-tutorial/go/deepthought";
+
+// 以下の例は Java のコードを(以下同
+option java_package = "io.github.ymmt2005.grpc_tutorial.deepthought";
+
+/**
+ * BootRequest は Boot RPC のリクエストのメッセージです。
+ * 現状空ですが、拡張可能にするため定義しておきます。
+ */
+message BootRequest {}
+
+/**
+ * BootResponse は Boot RPC のレスポンスのメッセージです。
+ */
+message BootResponse {
+  string message = 1;  // フィールドには 1 以上の整数の識別子が必要です
+}
+
+/**
+ * InferRequest は Infer RPC のリクエストのメッセージです。
+ */
+message InferRequest {
+  string query = 1;
+}
+
+/**
+ * InferResponse は Infer RPC のレスポンスのメッセージです。
+ */
+message InferResponse {
+  sint64 answer = 1;  // sint は符号付きの整数で、負の数を効率よくエンコードしてくれます
+  repeated string description = 2; // repeated を付けると配列を渡せます
+}
+
+/** 
+ * Compute は gRPC のサービスです。二つ RPC を定義しています。
+ */
+service Compute {
+  // Compute は Boot した瞬間に思考を始めるのでキャンセルするまでレスポンスを stream し続けます。
+  // リクエスト・レスポンスのメッセージは省略できません。
+  // `stream` がレスポンスについているので、この RPC はサーバーサイドストリーミングになります。
+  rpc Boot(BootRequest) returns (stream BootResponse);
+
+  // Infer は任意の質問に解答してくれます。
+  // 質問が Life, Universe, Everything に関する場合 750 万年、もとい 750 ミリ秒の計算を必要とします。
+  // この RPC はメッセージに `stream` がついていないので、Unary RPC です。
+  rpc Infer(InferRequest) returns (InferResponse);
+}
+
