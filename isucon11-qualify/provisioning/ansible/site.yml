@@ -1,0 +1,53 @@
+---
+- name: "common roles"
+  hosts: all
+  tags:
+    - contestant
+    - bench
+    - standalone
+  become: true
+  roles:
+    - common
+    - langs
+
+- name: "contestant roles"
+  hosts: [contestant]
+  tags: [contestant]
+  become: true
+  roles:
+    - langs.go
+    - langs.nodejs
+    - langs.perl
+    - langs.php
+    - langs.python
+    - langs.ruby
+    - langs.rust
+    - contestant
+    - contestant.envchecker
+
+- name: "bench roles"
+  hosts: [bench]
+  tags: [bench]
+  become: true
+  roles:
+    - langs.go
+    - langs.rust
+    - bench
+    - bench.node_exporter
+    - bench.supervisor
+
+- name: "bench (standalone) roles"
+  hosts: [standalone]
+  tags: [standalone]
+  become: true
+  roles:
+    - langs.go
+    - langs.nodejs
+    - langs.perl
+    - langs.php
+    - langs.python
+    - langs.ruby
+    - langs.rust
+    - contestant
+    - bench
+
