@@ -10,6 +10,7 @@ func main() {
 	yml := `
   a: 1
   b: "hello"
+  c: 3
   `
 	var v struct {
 		A int
