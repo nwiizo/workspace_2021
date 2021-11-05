@@ -1,0 +1,10 @@
+https://3-shake.com/api/users/123
+https://3-shake.com/api/users/222
+https://3-shake.com/api/users/412/profile
+https://3-shake.com/users/photos/photo.jpg
+https://3-shake.com/users/photos/myPhoto.jpg
+https://3-shake.com/users/photos/photo.png
+https://relance.jp
+https://relance.jp/home?qs=value
+https://relance.jp/home?qs=secondValue
+https://relance.jp/home?qs=newValue&secondQs=anotherValue
