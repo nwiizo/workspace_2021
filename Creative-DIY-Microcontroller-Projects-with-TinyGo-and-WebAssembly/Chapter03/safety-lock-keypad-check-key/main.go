@@ -1,0 +1,66 @@
+package main
+
+import (
+	"machine"
+	"time"
+
+	"github.com/PacktPublishing/Creative-DIY-Microcontroller-Projects-with-TinyGo-and-WebAssembly/Chapter03/keypad"
+	"github.com/PacktPublishing/Creative-DIY-Microcontroller-Projects-with-TinyGo-and-WebAssembly/Chapter03/servo"
+)
+
+func main() {
+	keypadDriver := keypad.Driver{}
+	keypadDriver.Configure(machine.D2, machine.D3, machine.D4, machine.D5, machine.D6, machine.D7, machine.D8, machine.D9)
+
+	servoDriver := servo.Driver{}
+	servoDriver.Configure(machine.D11)
+
+	outPutConfig := machine.PinConfig{Mode: machine.PinOutput}
+
+	led1 := machine.D12
+	led1.Configure(outPutConfig)
+
+	led2 := machine.D13
+	led2.Configure(outPutConfig)
+
+	const passcode = "133742"
+	enteredPasscode := ""
+
+	for {
+		key := keypadDriver.GetKey()
+		if key == "" {
+			continue
+		}
+
+		println("Button: ", key)
+
+		led2.High()
+		time.Sleep(time.Second / 5)
+		led2.Low()
+
+		if key != "#" {
+			enteredPasscode += key
+			continue
+		}
+
+		if enteredPasscode == passcode {
+			println("Success")
+			servoDriver.Right()
+
+			led1.High()
+			time.Sleep(time.Second * 3)
+			led1.Low()
+
+		} else {
+			println("Fail")
+			println("Entered Password: ", enteredPasscode)
+
+			led2.High()
+			time.Sleep(time.Second * 3)
+			led2.Low()
+		}
+
+		enteredPasscode = ""
+		time.Sleep(50 * time.Millisecond)
+	}
+}
