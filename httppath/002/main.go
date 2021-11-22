@@ -21,6 +21,7 @@ func main() {
 		}
 		fmt.Printf("URL: %s\n", baseURL.String())
 		fmt.Printf("Host: %s\n", baseURL.Host)
+		// HOST 名が
 		fmt.Printf("Hostname(): %s\n", baseURL.Hostname())
 		fmt.Printf("Path: %s\n", baseURL.Path)
 		fmt.Printf("RawPath: %s\n", baseURL.RawPath)
