@@ -1,8 +1,5 @@
 module example
 
-go 1.15
+go 1.17
 
-require (
-	github.com/coreos/go-iptables v0.4.5
-	github.com/golangci/golangci-lint v1.37.0 // indirect
-)
+require github.com/coreos/go-iptables v0.4.5
