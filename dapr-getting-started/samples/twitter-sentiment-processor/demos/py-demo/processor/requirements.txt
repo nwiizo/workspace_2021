@@ -1,0 +1,3 @@
+azure-ai-textanalytics >= 5.1.0b2
+dapr-ext-grpc >= 1.0.0
+dapr >= 1.0.0

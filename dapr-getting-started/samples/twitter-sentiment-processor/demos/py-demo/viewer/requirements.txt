@@ -1,0 +1,4 @@
+dapr-ext-grpc >= 1.0.0
+dapr >= 1.0.0
+flask-socketio == 4.*
+flask >= 1.1.2

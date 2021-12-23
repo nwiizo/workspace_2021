@@ -1,0 +1,8 @@
+POST http://localhost:3500/v1.0/publish/pubsub/neworder
+Content-Type: application/json
+
+{"order":{"orderId":"44"}}
+
+###
+
+GET http://localhost:3500/v1.0/invoke/mynode/method/order
