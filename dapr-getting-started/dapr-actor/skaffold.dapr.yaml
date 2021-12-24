@@ -1,0 +1,39 @@
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+requires:
+  - configs: ["dapr", "statestore"]
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: dapr
+deploy:
+  helm:
+    releases:
+      - name: dapr
+        repo: https://dapr.github.io/helm-charts
+        remoteChart: dapr
+        version: "1.5"
+        namespace: dapr-system
+        createNamespace: true
+        wait: true
+      - name: redis
+        repo: https://charts.bitnami.com/bitnami
+        remoteChart: redis
+        setValues:
+          master.persistence.enabled: false
+          replica.persistence.enabled: false
+          auth.password: hogeredis
+          architecture: standalone
+          sentinel.enabled: false
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: statestore
+deploy:
+  kubectl:
+    manifests:
+      - manifest/dapr/statestore.yaml

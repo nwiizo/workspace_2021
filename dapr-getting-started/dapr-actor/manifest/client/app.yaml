@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      labels:
+        app: client
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "client"
+        dapr.io/log-as-json: "true"
+        dapr.io/log-level: "info"
+    spec:
+      containers:
+      - name: client
+        image: client

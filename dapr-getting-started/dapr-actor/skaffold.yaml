@@ -1,0 +1,19 @@
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+requires:
+  - configs: ["client"]
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: client
+build:
+  artifacts:
+    - image: client
+      docker: { dockerfile: Dockerfile, network: host, buildArgs: { SERVICE_PATH: client } }
+deploy:
+  kubectl:
+    manifests:
+    - manifest/client/app.yaml

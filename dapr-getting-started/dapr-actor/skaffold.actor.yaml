@@ -1,0 +1,19 @@
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+requires:
+  - configs: ["actor"]
+---
+apiVersion: skaffold/v2beta25
+kind: Config
+metadata:
+  name: actor
+build:
+  artifacts:
+    - image: actor
+      docker: { dockerfile: Dockerfile, network: host, buildArgs: { SERVICE_PATH: actor } }
+deploy:
+  kubectl:
+    manifests:
+      - manifest/actor/app.yaml

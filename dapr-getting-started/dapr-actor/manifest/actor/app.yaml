@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: actor
+  template:
+    metadata:
+      labels:
+        app: actor
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "actor"
+        dapr.io/app-protocol: "http"
+        dapr.io/app-port: "8080"
+        dapr.io/dapr-http-port: "3500"
+        dapr.io/log-as-json: "true"
+        dapr.io/log-level: "info"
+    spec:
+      containers:
+      - name: actor
+        image: actor
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: actor
+spec:
+  type: ClusterIP
+  selector:
+    app: actor
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080
